@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gpt-hd-uHB">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="4eG-Oi-v8V">
+            <objects>
+                <tableViewController id="wh3-Wb-q4B" customClass="GiphyTableViewController" customModule="GiphyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="D5Z-JA-bbi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="giphyCell" rowHeight="50" id="Jla-Uh-HIU" customClass="GiphyTableViewCell" customModule="GiphyApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jla-Uh-HIU" id="fs0-ug-wJ6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYu-XK-EOw">
+                                            <rect key="frame" x="66" y="11" width="277" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BlI-TN-MYl" customClass="FLAnimatedImageView">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="49.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="iYM-Bl-0ei"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="BYu-XK-EOw" firstAttribute="leading" secondItem="BlI-TN-MYl" secondAttribute="trailing" constant="16" id="6oy-11-pA7"/>
+                                        <constraint firstItem="BlI-TN-MYl" firstAttribute="leading" secondItem="fs0-ug-wJ6" secondAttribute="leading" id="A3z-NB-XqY"/>
+                                        <constraint firstItem="BYu-XK-EOw" firstAttribute="top" secondItem="fs0-ug-wJ6" secondAttribute="topMargin" id="GgD-A5-VJt"/>
+                                        <constraint firstAttribute="bottom" secondItem="BlI-TN-MYl" secondAttribute="bottom" id="nSm-R1-MXb"/>
+                                        <constraint firstItem="BlI-TN-MYl" firstAttribute="top" secondItem="fs0-ug-wJ6" secondAttribute="top" id="xaL-sg-SMV"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="BYu-XK-EOw" secondAttribute="trailing" constant="16" id="ykG-60-ubj"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="animatedImageView" destination="BlI-TN-MYl" id="G3Z-XG-tT8"/>
+                                    <outlet property="gifTitleLabel" destination="BYu-XK-EOw" id="28O-ei-GeK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wh3-Wb-q4B" id="Egz-WZ-fR5"/>
+                            <outlet property="delegate" destination="wh3-Wb-q4B" id="JIg-FM-PuO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="0C8-JV-Goh"/>
+                    <connections>
+                        <segue destination="jPE-Z7-Jif" kind="show" identifier="showDetailView" id="mY2-k9-s13"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vLZ-zu-bj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="674" y="853"/>
+        </scene>
+        <!--Giphy Detail View Controller-->
+        <scene sceneID="AdU-gt-dOp">
+            <objects>
+                <viewController id="jPE-Z7-Jif" customClass="GiphyDetailViewController" customModule="GiphyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e2n-fR-MeI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctp-5f-j9t" customClass="FLAnimatedImageView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ctp-5f-j9t" secondAttribute="height" multiplier="1:1" id="7iR-3o-FtB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ctp-5f-j9t" firstAttribute="leading" secondItem="3Bx-dD-HhE" secondAttribute="leading" id="Yp7-hq-OeW"/>
+                            <constraint firstItem="ctp-5f-j9t" firstAttribute="top" secondItem="3Bx-dD-HhE" secondAttribute="top" id="eb8-N7-a5H"/>
+                            <constraint firstItem="3Bx-dD-HhE" firstAttribute="trailing" secondItem="ctp-5f-j9t" secondAttribute="trailing" id="mVs-pw-IBR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3Bx-dD-HhE"/>
+                    </view>
+                    <connections>
+                        <outlet property="animatedImageView" destination="ctp-5f-j9t" id="WOi-Cj-b6W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPk-8l-Mz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1570" y="852"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HXp-tX-08c">
+            <objects>
+                <navigationController id="gpt-hd-uHB" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i7r-uW-NLA">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wh3-Wb-q4B" kind="relationship" relationship="rootViewController" id="Onz-76-ewk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PQ9-jA-REB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-278" y="853"/>
+        </scene>
+    </scenes>
+</document>
